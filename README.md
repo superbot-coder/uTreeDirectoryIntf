@@ -41,13 +41,11 @@
 * **function SetTree(Tree: TTreeView): ITReeBuilder;** - Задает компонент TTreeView в котором строится дерево   
 * **function SetTreeStrings(TreeStrings: TStrings): ITReeBuilder;** - Задает класс TStrings в котором строится дерево в текстовом формате.
 *  **function SetFilterFileExt(const AExt: TArray<string>): ITReeBuilder;** - задает массив с расширениями для фильтрации файлов, если массив пустой в нем 0 элементов, то фильтр не применяется. 
-
-🛠 **Управление индексами иконок**
-
-function SetIndexIcons(const IndexDir, indexFile: Integer): ITReeBuilder; - метод задает индексы иконок для директорий и файлов. Если индексы иконок не задавались, от они по умолчанию не отображаются
+* **function SetIndexIcons(const IndexDir, indexFile: Integer): ITReeBuilder;** - метод задает индексы иконок для директорий и файлов. Если индексы иконок не задавались, от они по умолчанию не отображаются
 Поддерживается отображение иконок двух типов:
 * для директорий
 * для файлов
+
 Поддерживается только одно изображение на все типы директорий и одно изображение на все типы файлов. Иконки нужно подбирать самостоятельно в компоненте TImageList с добавлением этого списка в компонент TTreeView через свойство **images**, например, **MyTreeView.images := MyImageList;**
   
 🛠 **Примеры использования / Use Examples:**
