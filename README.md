@@ -1,6 +1,6 @@
 ### Модуль uTreeDirectoryIntf.pas для создания дерева директории с файлами
 
-![ScrreShot](\images\image_01.png)
+![ScrreShot](images\image_01.png)
 
 #### Интерфейс ITReeBuilder
 
