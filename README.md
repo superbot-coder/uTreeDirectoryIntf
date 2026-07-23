@@ -28,7 +28,7 @@
   try
 	 // mmReport - Класс TMemo со встроенным классом Lines: TStrings
 	 mmReport.Lines.SaveToStream(mstrm); 
-	 mstm.Position := 0;
+	 mstrm.Position := 0;
 	 TVBooks.LoadFromStream(mstm); // TVBooks - это класс TTreeView
   finally
 	 mstrm.Free;
