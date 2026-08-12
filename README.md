@@ -75,7 +75,7 @@
   // их два с параметрами и без
   // Не забываем, что это интерфейс и обязательно указываем тип переменной на интерфейс, 
   // что бы не было утечки памяти
-  var ITreeTwo: ITreeFiles := TTreeFiles.Create(TVBooks, nil, MainConf.BooksDir);
+  var ITreeTwo: ITreeBuilder := TTreeBuilder.Create(TVBooks, nil, MainConf.BooksDir);
   ITreeTwo.TreeExecut;
   ```
 
