@@ -100,6 +100,13 @@ end;
 constructor TTreeBuilder.Create(const AInitialDir: String; ATree: TTreeView;
   AExt: TArray<String>; AIndexDir, AIndexFile: Integer);
 begin
+  inherited Create;  
+  
+  if AInitialDir.IsEmpty then
+    raise Exception.Create('Error: InitialDir is empty'); 	
+  if not Assigned(ATree) then
+    raise Exception.Create('Error: control TTreeView is Nil'); 
+
   FInitialDir := AInitialDir;
   FTree := ATree;
   SetFilterFileExt(AExt);
@@ -109,8 +116,6 @@ end;
 
 procedure TTreeBuilder.Execut;
 begin
-  if not Assigned(FTree) then
-    raise Exception.Create('Error: control TTreeView is Nil');
   if FInitialDir.IsEmpty then
     raise Exception.Create('Error: InitialDir is empty');
   FTree.Items.BeginUpdate;
@@ -127,6 +132,12 @@ end;
 class function TTreeBuilder.New(const AInitialDir: String; ATree: TTreeView;
   AExt: TArray<String>; IndexDir, IndexFile: Integer): ITreeBuilder;
 begin
+
+  if AInitialDir.IsEmpty then
+    raise Exception.Create('Error: InitialDir is empty');
+  if not Assigned(ATree) then
+    raise Exception.Create('Error: control TTreeView is Nil'); 
+
   Result := TTreeBuilder.Create;
   Result.InitialDir := AInitialDir;
   Result.Tree := ATree;
@@ -199,6 +210,11 @@ constructor TTreeListBuilder.Create(const AInitialDir: string;
   ATreeList: TStrings; AExt: TArray<String>);
 begin
   inherited Create;
+  if AInitialDir.IsEmpty then
+    raise Exception.Create('Error: InitialDir is empty');   
+  if not Assigned(ATreeList) then
+    raise Exception.Create('Error: control TTreeView is Nil');  
+  
   FInitialDir := AInitialDir;
   FTreeList := ATreeList;
   SetFilterFileExt(AExt);
@@ -206,10 +222,6 @@ end;
 
 procedure TTreeListBuilder.Execut(FullPathEnabled: Boolean);
 begin
-  if Not Assigned(FTreeList) then
-    raise Exception.Create('Error:  TStrings is Nil');
-  if FInitialDir.IsEmpty then
-    raise Exception.Create('Error: InitialDir is empty');
   FTreeList.BeginUpdate;
   FTreeList.Clear;
   FFullPathEnabled := FullPathEnabled;
